@@ -1,0 +1,54 @@
+<ion-header>
+  <ion-button><a routerLink="/usertabs/user-dashboard">Back</a></ion-button>
+  <ion-toolbar>
+
+    <ion-title>[CHECKOUT PAGE]</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+  <form  [formGroup]="credentials" (ngSubmit)="getValue()">
+  <div  class="toppings">
+    <ion-label>Toppings</ion-label>
+    <ion-list >
+      <ion-item >
+        <ion-select formControlName="sToppings"  interface="action-sheet" placeholder="Select Toppings">
+          <ion-select-option *ngFor="let topping of toppings" value="{{topping.toppingsName}}">{{topping.toppingsName}}</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div>
+
+  <div class="layers">
+    <ion-label>Layers</ion-label>
+    <ion-list>
+      <ion-item>
+        <ion-select formControlName="layers" interface="action-sheet" placeholder="Select layers">
+          <ion-select-option value="1">1</ion-select-option>
+          <ion-select-option value="2">2</ion-select-option>
+          <ion-select-option value="3">3</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="size">
+    <ion-label>Size</ion-label>
+    <ion-list>
+      <ion-item>
+        <ion-select formControlName="size" interface="action-sheet" placeholder="Select size in inches">
+          <ion-select-option value="6">6 in.</ion-select-option>
+          <ion-select-option value="9">9 in.</ion-select-option>
+          <ion-select-option value="12">12 in.</ion-select-option>
+        </ion-select>
+      </ion-item>
+    </ion-list>
+  </div>
+  <div class="customtext">
+    <ion-label>Additional Instructions:</ion-label>
+    <ion-input formControlName="message" placeholder="Add Happy 18th Birthday"></ion-input>
+  </div>
+  
+  <ion-button expand="block" type="submit" shape="round" [disabled]="!credentials.valid" color="tertiary">Checkout</ion-button>
+</form>
+</ion-content>

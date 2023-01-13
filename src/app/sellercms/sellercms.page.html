@@ -1,0 +1,120 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/sellertabs/seller-dashboard">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Edit Cake - Content Management</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card class="toppings">
+    <ion-card-content>
+      <ion-card-title>Toppings:</ion-card-title>
+      <ion-button shape="round" id="open-modal" expand="block">Add Toppings</ion-button>
+      <ion-modal trigger="open-modal">
+        <ng-template>
+          <ion-content>
+            <ion-toolbar>
+              <ion-title>Add Toppings:</ion-title>
+              <ion-buttons slot="end">
+                <ion-button color="primary" (click)="cancel()">Cancel</ion-button>
+              </ion-buttons>
+            </ion-toolbar>
+            <form [formGroup]="credentials" (ngSubmit)="addToppings()">
+              <ion-list>
+                <ion-item>
+                   <ion-input formControlName="topname" placeholder="Strawberry"></ion-input>
+                </ion-item>
+                  <ion-button (click)="confirm()" color="primary" type="submit" [disabled]="!credentials.valid">Save</ion-button>
+              </ion-list>
+            </form>
+          </ion-content>
+        </ng-template>
+      </ion-modal>
+      <ion-list *ngFor="let top of toppings">
+        <ion-item>
+          <p>{{top.toppingsName}}</p>
+          <ion-button class="edit" slot="end" (click)="deleteTop(top)" >
+            <ion-icon name="create-outline"></ion-icon>
+          </ion-button>
+          <ion-button class="delete" slot="end" (click)="deleteTop(top)" >
+            <ion-icon name="trash-outline"></ion-icon>
+          </ion-button>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+</ion-card>
+<ion-card class="layers">
+  <ion-card-content>
+    <div class="cardtitle">
+      <ion-card-title>Layers:</ion-card-title>
+    </div>
+    <ion-list >
+      <ion-item>
+        <ion-label>Amount: 1</ion-label>
+        <ion-button><ion-icon name="create"></ion-icon></ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-label>Amount: 2</ion-label>
+        <ion-button><ion-icon name="create"></ion-icon></ion-button>
+      </ion-item>
+      <ion-item>
+        <ion-label>Amount: 3</ion-label>
+        <ion-button><ion-icon name="create"></ion-icon></ion-button>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+<ion-card class="sizes">
+  <ion-card-content>
+    <ion-card-title>Sizes:</ion-card-title>
+    <ion-list >
+      <ion-item>
+        <ion-label>6 inches</ion-label>
+        <ion-button id="open-modal"><ion-icon name="create"></ion-icon></ion-button>
+        <ion-modal trigger="open-modal">
+          <ng-template>
+            <ion-content>
+              <ion-label>6 inches</ion-label>
+              <ion-input placeholder="price"></ion-input>
+              <ion-button (click)="cancel()">Cancel</ion-button>
+              <ion-button (click)="confirm()">Confirm</ion-button>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+      <ion-item>
+        <ion-label>9 inches</ion-label>
+        <ion-button id="open-modal1"><ion-icon name="create"></ion-icon></ion-button>
+        <ion-modal trigger="open-modal1">
+          <ng-template>
+            <ion-content>
+              <ion-label>6 inches</ion-label>
+              <ion-input placeholder="price"></ion-input>
+              <ion-button (click)="cancel()">Cancel</ion-button>
+              <ion-button (click)="confirm()">Confirm</ion-button>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+      <ion-item>
+        <ion-label>12 inches</ion-label>
+        <ion-button id="open-modal2"><ion-icon name="create"></ion-icon></ion-button>
+        <ion-modal trigger="open-modal2">
+          <ng-template>
+            <ion-content>
+              <ion-label>6 inches</ion-label>
+              <ion-input placeholder="price"></ion-input>
+              <ion-button (click)="cancel()">Cancel</ion-button>
+              <ion-button (click)="confirm()">Confirm</ion-button>
+            </ion-content>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+</ion-content>

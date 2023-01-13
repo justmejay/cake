@@ -1,0 +1,55 @@
+<ion-toolbar>
+  <ion-buttons slot="start">
+    <ion-back-button default-href="#"></ion-back-button>
+  </ion-buttons>
+  <ion-title>Place Order</ion-title>
+</ion-toolbar>
+
+<ion-content>
+  <ion-header>
+    <div class="header">
+      <h1>For Pick Up</h1>
+    </div>
+  </ion-header>
+  <ion-card>
+    <!-- <ion-img class="cake" src="assets/icon/strawberrycake.jpg"></ion-img> -->
+    <!-- <ion-img src="{{ cakeImage }}"></ion-img> -->
+  </ion-card>
+  <ion-card>
+    <div class="listcustomcake">
+      <ion-grid>
+        <ion-row>
+         <ion-col class="title">Toppings</ion-col>
+         <ion-col>{{topping}}</ion-col>
+         <ion-col>+ 0php</ion-col>
+        </ion-row>
+         <ion-row>
+          <ion-col class="title">Layers</ion-col>
+          <ion-col>{{layer}}</ion-col>
+          <ion-col>+ 100php</ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col class="title">Size</ion-col>
+          <ion-col>{{size}} inches</ion-col>
+          <ion-col>+ 50php</ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col class="title">Additional Instructions</ion-col>
+          <ion-col>Add "{{message}}"</ion-col>
+          <ion-col>+ 50php</ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col class="title">Base Price: </ion-col>
+          <ion-col></ion-col>
+          <ion-col>500 php</ion-col>
+         </ion-row>
+         <ion-row>
+          <ion-col class="title">Total Price: </ion-col>
+          <ion-col></ion-col>
+          <ion-col>500 php</ion-col>
+         </ion-row>
+      </ion-grid>
+    </div>
+  </ion-card>
+  <ion-button shape="round" color="tertiary" class="placeorder">Place Order</ion-button>
+</ion-content>

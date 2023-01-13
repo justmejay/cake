@@ -1,0 +1,32 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/sellertabs/seller-dashboard">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Add Cake</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <form [formGroup]="credentials" (ngSubmit)="addcakeDetails()">
+<ion-button class="addimage" (click)="addImage()" expand="block" shape="round">Insert Cake Image</ion-button>
+<img [src]="getSafeUrl()" alt="">
+<ion-card class="price">
+  <ion-card-content>
+    <ion-list>
+      <ion-item>
+        <ion-card-title>Name:</ion-card-title>
+         <ion-input formControlName="name" placeholder="Cake Name"></ion-input>
+       </ion-item>
+      <ion-item>
+       <ion-card-title>Price:</ion-card-title>
+        <ion-input formControlName="price" placeholder="Price"></ion-input>
+      </ion-item>
+    </ion-list>
+  </ion-card-content>
+</ion-card>
+<ion-button type="submit" [disabled]="!credentials.valid" shape="round" expand="block">Save Changes</ion-button>
+</form>
+</ion-content>

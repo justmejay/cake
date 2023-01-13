@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Profile Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+ <ion-card>
+  <div *ngIf="profile">
+    <ion-item>
+      <ion-label position="stacked"> First Name </ion-label>
+      <ion-input [(ngModel)]="profile.firstName"></ion-input>
+    </ion-item>
+    <ion-item>
+    <ion-label position="stacked"> Last Name </ion-label>
+      <ion-input [(ngModel)]="profile.lastName"></ion-input>
+    </ion-item>
+  </div>
+ </ion-card>
+  <ion-button (click)="updateprofile()" expand="block" color="tertiary" shape="round">
+    <ion-icon slot="start" name="save"></ion-icon>
+    Update
+  </ion-button>
+</ion-content>

@@ -1,0 +1,49 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-title>Signup</ion-title>
+    <ion-buttons slot="start" routerLink="/">
+      <ion-button color="white">
+        <ion-icon slot="icon-only"  name="arrow-back" ></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <form [formGroup]="credentials" (ngSubmit)="register()" id="form">
+      <ion-list>
+        <ion-item>
+          <ion-label class="signuplabel">First Name: </ion-label>
+          <ion-input type="text" formControlName="fname"  placeholder="Enter First Name"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="( fname.dirty || fname.touched) && fname.errors">Required!!</ion-note>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-label class="signuplabel">Last Name: </ion-label>
+          <ion-input type="text" formControlName="lname"  placeholder="Enter Last Name"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="( lname.dirty || lname.touched) && lname.errors">Required!!</ion-note>
+      </ion-list>
+      <ion-list>
+        <ion-item>
+          <ion-label class="signuplabel">Email Address: </ion-label>
+          <ion-input type="text" formControlName="email" placeholder="Enter Email Address"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="( email.dirty || email.touched) && email.errors">Invalid Email!</ion-note>
+      </ion-list>
+  
+      <ion-list>
+        <ion-item>
+          <ion-label class="signuplabel">Password: </ion-label>
+          <ion-input type="password" formControlName="password" placeholder="Enter Password"></ion-input>
+        </ion-item>
+        <ion-note slot="error" *ngIf="( password.dirty || password.touched) && password.errors">Minimum 6 Characters!!!</ion-note>
+      </ion-list>
+      <ion-button  type="submit" expand="block" [disabled]="!credentials.valid" color="tertiary" shape="round">Create Account</ion-button>
+      <ion-button fill="clear" expand="block" [routerLink]="['/login']">I already have an account.</ion-button> 
+    
+    </form>
+  </ion-card>  
+ </ion-content>

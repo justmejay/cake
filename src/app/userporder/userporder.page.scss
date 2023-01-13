@@ -1,0 +1,43 @@
+ion-header{
+    background-color: white;
+  div.header{
+    text-align: center;
+  }
+  padding: 3%;
+}
+ion-card{
+    margin: 5%;
+    padding: 0;
+    border-radius: 25px;
+}
+
+// div.listcustomcake{
+//     --background: white;
+// }
+ion-grid{
+    margin-left: 2%;
+    margin-right: 2%;
+}
+ion-col {
+    font-weight: bold;
+    padding: 0.8rem;
+    background-color: white;
+    // border: solid 1px rgb(224, 224, 224);
+    color: black;
+  }
+ion-content {
+    --background: #ECEFF0;
+}    
+ion-button.placeorder {
+    margin-top: 3%;
+    margin-left: 25%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 48px;
+    width: 50%;
+    font-size: 18px;
+    text-transform: initial;
+    border-radius: 50px;
+    // box-shadow: 1px 8px 8px 0px;
+}

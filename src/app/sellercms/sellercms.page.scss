@@ -1,0 +1,41 @@
+ion-toolbar{
+    color: black;
+    ion-icon{
+        color: black;
+    }
+  }
+  ion-modal {
+      --height: 40%;
+      --width: 80%;
+      --border-radius: 25px;
+      --box-shadow: 0 10px 15px -3px rgb(0 0 0 / 0.1), 0 4px 6px -4px rgb(0 0 0 / 0.1);
+    }
+    ion-content{
+      --background: #ECEFF0;
+  }
+    ion-button{
+      --background: #616CFB;
+      color: white;
+      height: 50px;
+      margin: 3%;
+  }
+  ion-button.delete{
+    --background: #e52b2b;
+      color: white;
+      height: 50px;
+      margin: 3%;
+  }
+  ion-button.edit{
+    --background: #a7ccc9;
+      color: white;
+      height: 50px;
+      margin: 3%;
+  }
+  
+    ion-card{
+      border-radius: 25px;
+      margin-bottom: 8%;
+      ion-card-title{
+          padding-right: 2%;
+      }
+  }

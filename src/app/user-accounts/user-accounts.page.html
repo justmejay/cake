@@ -1,0 +1,34 @@
+<ion-header>
+  <ion-toolbar>
+    <!-- <ion-buttons slot="start">
+      <ion-button (click)="logout()">
+        <ion-icon slot="icon-only" name="log-out"></ion-icon>
+      </ion-button>
+    </ion-buttons> -->
+    <ion-title> Account </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content class="ion-padding">
+  <div class="preview">
+    <ion-avatar (click)="changeImage()">
+      <img *ngIf="profile?.imageUrl; else placeholder_avatar;" [src]="profile.imageUrl" />
+      <ng-template #placeholder_avatar>
+        <div class="fallback">
+          <p>Select avatar</p>
+        </div>
+      </ng-template>
+    </ion-avatar>
+  </div>
+  <ion-card *ngIf="profiles" >
+    <ion-card-content>
+      <p>{{profiles.firstName}}</p>
+      <p>{{profiles.lastName}}</p>
+      <p>{{profiles.email}}</p>
+    </ion-card-content>
+  </ion-card>
+
+  <ion-button class="purple" (click)="openProfile(profiledata)" expand="block" shape="round">Update</ion-button>
+  <ion-button class="cardbutton" (click)="logout()" expand="block" shape="round">Logout</ion-button>
+
+</ion-content>
