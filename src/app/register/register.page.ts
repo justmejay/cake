@@ -58,8 +58,9 @@ export class RegisterPage implements OnInit {
     await loading.dismiss();
 
     if (user) {
-      this.router.navigateByUrl('/usertabs', { replaceUrl: true });
-    } else {
+      await this.authService.logout();
+      this.router.navigateByUrl('/', { replaceUrl: true });
+        } else {
       this.showAlert('Registration failed', 'Please try again!');
     }
   }
