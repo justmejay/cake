@@ -34,9 +34,25 @@ export interface Toppings{
   //id is optional and not required
   id?: string
  toppingsName: string,
+ price: string
 
 }
 
+export interface Layers{
+  //id is optional and not required
+  id?: string
+ layername: string,
+ price: string
+
+}
+
+export interface Sizes{
+  //id is optional and not required
+  id?: string
+ sizename: string,
+ price: string
+
+}
 @Injectable({
   providedIn: 'root',
 })
@@ -69,12 +85,12 @@ export class AvatarService {
   }
 
 
-  async  addToppings({topname}){
+  async  addToppings({topname, toprice}){
 
   
       const imageUrl = "";
       const userDocRef = collection(this.firestore, `toppings/`);
-      const toppings = await addDoc(userDocRef, {toppingsName: topname});
+      const toppings = await addDoc(userDocRef, {toppingsName: topname, price: toprice});
 
       return toppings;
 
@@ -140,6 +156,10 @@ export class AvatarService {
     return docData(cakesByIdRef, {idField: 'id'}) as Observable <Cake>
   }
 
+  getTopById(id:any):Observable<Toppings>{
+    const cakesByIdRef = doc(this.firestore, `toppings/${id}`)
+    return docData(cakesByIdRef, {idField: 'id'}) as Observable <Toppings>
+  }
   
 
   
@@ -196,5 +216,42 @@ export class AvatarService {
     const cakeRef = doc(this.firestore,`cakes/${cake.id}`)
     return updateDoc(cakeRef, {name: cake.name, price: cake.price})
   }
+
+  getLayers(): Observable<Layers[]>{
+    const layerRef = collection(this.firestore, 'layers')
+    return collectionData(layerRef, {idField: 'id'}) as Observable<[Layers]>
+  }
+
+  getSizes(): Observable<Sizes[]>{
+    const sizeRef = collection(this.firestore, 'sizes')
+    return collectionData(sizeRef, {idField: 'id'}) as Observable<[Sizes]>
+  }
+
+  updatePriceLayer(layer:Layers){
+    const cakeRef = doc(this.firestore,`layers/${layer.id}`)
+    return updateDoc(cakeRef, {price: layer.price})
+  }
+
+  
+  updatePriceSize(size:Sizes){
+    const cakeRef = doc(this.firestore,`sizes/${size.id}`)
+    return updateDoc(cakeRef, {price: size.price})
+  }
+
+  updateTop(toppings:Toppings){
+    const cakeRef = doc(this.firestore,`toppings/${toppings.id}`)
+    return updateDoc(cakeRef, {toppingsName: toppings.toppingsName, price: toppings.price })
+  }
+
+
+  getlayerById(id:any):Observable<Layers>{
+    const cakesByIdRef = doc(this.firestore, `layers/${id}`)
+    return docData(cakesByIdRef, {idField: 'id'}) as Observable <Layers>
+  }
+  getsizeById(id:any):Observable<Sizes>{
+    const cakesByIdRef = doc(this.firestore, `sizes/${id}`)
+    return docData(cakesByIdRef, {idField: 'id'}) as Observable <Sizes>
+  }
+  
 
 }

@@ -8,6 +8,9 @@ import { AvatarService } from '../services/avatar.service';
 import { ViewChild } from '@angular/core';
 import { IonModal } from '@ionic/angular';
 import { OverlayEventDetail } from '@ionic/core/components';
+import { EditpricePage } from '../editprice/editprice.page';
+import { EditpricesizePage } from '../editpricesize/editpricesize.page';
+import { EditoppingsPage } from '../editoppings/editoppings.page';
 
 @Component({
   selector: 'app-sellercms',
@@ -17,6 +20,10 @@ import { OverlayEventDetail } from '@ionic/core/components';
 export class SellercmsPage implements OnInit {
   credentials: FormGroup;
   toppings: any = [];
+  layers: any = [];
+  sizes: any = [];
+
+
   @ViewChild(IonModal) modal: IonModal;
 
   cancel() {
@@ -41,6 +48,14 @@ export class SellercmsPage implements OnInit {
   ) {
     this.avatarService.getToppings().subscribe(res=>{
       this.toppings = res  
+    });
+
+    this.avatarService.getLayers().subscribe(res=>{
+      this.layers = res  
+    });
+
+    this.avatarService.getSizes().subscribe(res=>{
+      this.sizes = res  
     });
    }
    async addToppings(){
@@ -73,6 +88,39 @@ export class SellercmsPage implements OnInit {
     alert.present();
   }
 
+ 
+  async editP(layer){
+    const modal = await this.modalController.create({
+      component: EditpricePage,
+      componentProps: {id: layer.id,},
+      breakpoints: [0, 0.5, 0.8],
+      initialBreakpoint: 0.5
+    });
+    await modal.present();
+   }
+
+   
+  async editPz(size){
+    const modal = await this.modalController.create({
+      component: EditpricesizePage,
+      componentProps: {id: size.id,},
+      breakpoints: [0, 0.5, 0.8],
+      initialBreakpoint: 0.5
+    });
+    await modal.present();
+   }
+
+   async editop(top){
+    const modal = await this.modalController.create({
+      component: EditoppingsPage,
+      componentProps: {id: top.id,},
+      breakpoints: [0, 0.5, 0.8],
+      initialBreakpoint: 0.5
+    });
+    await modal.present();
+   }
+
+
   async showAlert(header, message) {
     const alert = await this.alertController.create({
       header,
@@ -84,6 +132,8 @@ export class SellercmsPage implements OnInit {
   ngOnInit() {
     this.credentials = this.fb.group({
       topname: ['', [Validators.required]],
+      toprice: ['', [Validators.required]],
+      
 
     });
   }

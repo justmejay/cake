@@ -27,6 +27,8 @@
               <ion-list>
                 <ion-item>
                    <ion-input formControlName="topname" placeholder="Strawberry"></ion-input>
+                   <ion-input formControlName="toprice" placeholder="Price"></ion-input>
+
                 </ion-item>
                   <ion-button (click)="confirm()" color="primary" type="submit" [disabled]="!credentials.valid">Save</ion-button>
               </ion-list>
@@ -37,7 +39,7 @@
       <ion-list *ngFor="let top of toppings">
         <ion-item>
           <p>{{top.toppingsName}}</p>
-          <ion-button class="edit" slot="end" (click)="deleteTop(top)" >
+          <ion-button class="edit" slot="end" (click)="editop(top)" >
             <ion-icon name="create-outline"></ion-icon>
           </ion-button>
           <ion-button class="delete" slot="end" (click)="deleteTop(top)" >
@@ -52,10 +54,10 @@
     <div class="cardtitle">
       <ion-card-title>Layers:</ion-card-title>
     </div>
-    <ion-list >
+    <ion-list *ngFor="let layer of layers">
       <ion-item>
-        <ion-label>placeholder</ion-label>
-        <ion-button id="openmodalayer"><ion-icon name="create"></ion-icon></ion-button>
+        <ion-label>{{layer.layername}}</ion-label>
+        <ion-button (click)="editP(layer)" ><ion-icon name="create"></ion-icon></ion-button>
         <ion-modal trigger="openmodalayer">
           <ng-template>
             <ion-content>
@@ -81,10 +83,10 @@
 <ion-card class="sizes">
   <ion-card-content>
     <ion-card-title>Sizes:</ion-card-title>
-    <ion-list>
+    <ion-list *ngFor="let size of sizes">
       <ion-item>
-        <ion-label>12 inches</ion-label>
-        <ion-button id="open-modal2"><ion-icon name="create"></ion-icon></ion-button>
+        <ion-label>{{size.sizename}}</ion-label>
+        <ion-button (click)="editPz(size)"><ion-icon name="create"></ion-icon></ion-button>
         <ion-modal trigger="open-modal2">
           <ng-template>
             <ion-content>

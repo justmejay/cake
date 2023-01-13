@@ -1,0 +1,23 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Details</ion-title>
+  </ion-toolbar>
+</ion-header>
+ 
+<ion-content>
+  <div>
+    <div *ngIf="layer">  
+      <ion-item>
+        <ion-label position="stacked">Price</ion-label>
+        <ion-input [(ngModel)]="layer.price"></ion-input>
+      </ion-item>
+     
+    </div>
+  
+    <ion-button (click)="updatePrice()" expand="block" color="success" shape="round">
+      <ion-icon slot="start" name="save"></ion-icon>
+      Update
+    </ion-button>
+      
+  </div>
+</ion-content>
