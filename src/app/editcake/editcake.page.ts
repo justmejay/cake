@@ -84,7 +84,7 @@ export class EditcakePage implements OnInit {
   }
   
 
-  async deleteTop(toppings){
+  async deleteCake(){
     const alert = await this.alertController.create({
       header: "Delete Toppings",
       message: "Are you sure you want to delete?",
@@ -96,7 +96,9 @@ export class EditcakePage implements OnInit {
         {
           text: 'Yes',
           handler:()=>{
-            this.avatarService.deleteTop(toppings.id);
+            this.avatarService.deleteCake(this.cake);
+            this.showAlert('Success', 'Cake Deleted!')
+            this.router.navigateByUrl('/sellertabs/seller-dashboard', { replaceUrl: true });
             this.modalController.dismiss();
           }
         }

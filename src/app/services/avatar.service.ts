@@ -212,6 +212,12 @@ export class AvatarService {
     return deleteDoc(cakeRef)
   }
 
+  deleteCake(cake: any){
+    console.log(cake)
+    const cakeRef = doc(this.firestore, `cakes/${cake.id}`)
+    return deleteDoc(cakeRef)
+  }
+
    updateCake(cake:Cake){
     const cakeRef = doc(this.firestore,`cakes/${cake.id}`)
     return updateDoc(cakeRef, {name: cake.name, price: cake.price})
