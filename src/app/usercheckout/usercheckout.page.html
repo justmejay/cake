@@ -13,8 +13,8 @@
     <ion-label>Toppings</ion-label>
     <ion-list >
       <ion-item >
-        <ion-select formControlName="sToppings"  interface="action-sheet" placeholder="Select Toppings">
-          <ion-select-option *ngFor="let topping of toppings" value="{{topping.toppingsName}}">{{topping.toppingsName}}</ion-select-option>
+        <ion-select formControlName="sToppings"  interface="action-sheet" placeholder="Select Topping">
+          <ion-select-option *ngFor="let topping of toppings" value="{{topping.toppingsName}}">{{topping.toppingsName}} - {{topping.price}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
@@ -24,10 +24,8 @@
     <ion-label>Layers</ion-label>
     <ion-list>
       <ion-item>
-        <ion-select formControlName="layers" interface="action-sheet" placeholder="Select layers">
-          <ion-select-option value="1">1</ion-select-option>
-          <ion-select-option value="2">2</ion-select-option>
-          <ion-select-option value="3">3</ion-select-option>
+        <ion-select formControlName="sLayers"  interface="action-sheet" placeholder="Select Layer">
+          <ion-select-option *ngFor="let layer of layers" value="{{layer.layername}}">{{layer.layername}} - {{layer.price}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>
@@ -36,10 +34,8 @@
     <ion-label>Size</ion-label>
     <ion-list>
       <ion-item>
-        <ion-select formControlName="size" interface="action-sheet" placeholder="Select size in inches">
-          <ion-select-option value="6">6 in.</ion-select-option>
-          <ion-select-option value="9">9 in.</ion-select-option>
-          <ion-select-option value="12">12 in.</ion-select-option>
+        <ion-select formControlName="sSizes"  interface="action-sheet" placeholder="Select Size">
+          <ion-select-option *ngFor="let size of sizes" value="{{size.sizename}}">{{size.sizename}} - {{size.price}}</ion-select-option>
         </ion-select>
       </ion-item>
     </ion-list>

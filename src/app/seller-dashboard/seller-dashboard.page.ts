@@ -44,8 +44,8 @@ export class SellerDashboardPage implements OnInit {
   }
 
   async editCake(cake){
-
-this.router.navigate(['editcake'], {queryParams:{cakeid: cake.id}});
+ 
+  this.router.navigate(['editcake'], {queryParams:{cakeid: cake.id}});
 
 
 

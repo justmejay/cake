@@ -12,6 +12,8 @@ export class UsercheckoutPage implements OnInit {
   cake:any = [];
   idcake: any;
   toppings: any = [];
+  layers: any = [];
+  sizes: any = [];
   credentials: FormGroup;
 
 
@@ -33,18 +35,27 @@ export class UsercheckoutPage implements OnInit {
     this.avatarService.getToppings().subscribe(res=>{
       this.toppings = res  
     })
+
+    this.avatarService.getLayers().subscribe(res=>{
+      this.layers = res  
+    })
+
+    this.avatarService.getSizes().subscribe(res=>{
+      this.sizes = res  
+    })
+
   }
 
   get sToppings() {
     return this.credentials.get('sToppings');
   }
 
-  get layers() {
-    return this.credentials.get('layers');
+  get sLayers() {
+    return this.credentials.get('sLayers');
   }
 
-  get size() {
-    return this.credentials.get('size');
+  get sSizes() {
+    return this.credentials.get('sSizes');
   }
 
   get message() {
@@ -56,8 +67,8 @@ export class UsercheckoutPage implements OnInit {
 
     this.credentials = this.fb.group({
       sToppings: ['', [Validators.required]],
-      layers: ['', [Validators.required,]], 
-      size: ['', [Validators.required,]],
+      sLayers: ['', [Validators.required,]], 
+      sSizes: ['', [Validators.required,]],
       message: ['', [Validators.required,]],
 
     });
@@ -70,8 +81,8 @@ export class UsercheckoutPage implements OnInit {
     
     async getValue() {
       let selectedTopping = this.credentials.get('sToppings').value;
-      let selectedLayer = this.credentials.get('layers').value;
-      let selectedSize = this.credentials.get('size').value;
+      let selectedLayer = this.credentials.get('sLayers').value;
+      let selectedSize = this.credentials.get('sSizes').value;
       let selectedMessage = this.credentials.get('message').value;
       console.log('Selected Topping:', selectedTopping);
       console.log('Selected Layer:', selectedLayer);
