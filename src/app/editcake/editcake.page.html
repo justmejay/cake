@@ -37,7 +37,7 @@
           <ion-toolbar>
             <ion-title>Add Toppings:</ion-title>
             <ion-buttons slot="end">
-              <ion-button color="primary" (click)="modal.dismiss()">Close</ion-button>
+              <ion-button color="" (click)="modal.dismiss()">Close</ion-button>
             </ion-buttons>
           </ion-toolbar>
           <form [formGroup]="credentials" (ngSubmit)="addToppings()">
@@ -45,7 +45,7 @@
               <ion-item>
                  <ion-input formControlName="topname" placeholder="Strawberry"></ion-input>
               </ion-item>
-                <ion-button color="primary" type="submit" [disabled]="!credentials.valid" >Save</ion-button>
+                <ion-button color="" type="submit" [disabled]="!credentials.valid" >Save</ion-button>
             </ion-list>
           </form>
         </ion-content>

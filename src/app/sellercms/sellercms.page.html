@@ -20,7 +20,7 @@
             <ion-toolbar>
               <ion-title>Add Toppings:</ion-title>
               <ion-buttons slot="end">
-                <ion-button color="primary" (click)="cancel()">Cancel</ion-button>
+                <ion-button color="" (click)="cancel()">Cancel</ion-button>
               </ion-buttons>
             </ion-toolbar>
             <form [formGroup]="credentials" (ngSubmit)="addToppings()">
@@ -29,7 +29,7 @@
                    <ion-input formControlName="topname" placeholder="Strawberry"></ion-input>
                    <ion-input formControlName="toprice" placeholder="Price"></ion-input>
                 </ion-item>
-                  <ion-button (click)="confirm()" color="primary" type="submit" [disabled]="!credentials.valid">Save</ion-button>
+                  <ion-button (click)="confirm()" color="" type="submit" [disabled]="!credentials.valid">Save</ion-button>
               </ion-list>
             </form>
           </ion-content>
@@ -63,14 +63,14 @@
               <ion-toolbar>
                 <ion-title>Edit Price:</ion-title>
                 <ion-buttons slot="end">
-                  <ion-button color="primary" (click)="cancel()">Cancel</ion-button>
+                  <ion-button color="" (click)="cancel()">Cancel</ion-button>
                 </ion-buttons>
               </ion-toolbar>
                 <ion-list>
                   <ion-item>
                      <ion-input placeholder="Price"></ion-input>
                   </ion-item>
-                    <ion-button (click)="confirm()" color="primary" type="submit" [disabled]="!credentials.valid">Save</ion-button>
+                    <ion-button (click)="confirm()" color="" type="submit" [disabled]="!credentials.valid">Save</ion-button>
                 </ion-list>
             </ion-content>
           </ng-template>
@@ -92,14 +92,14 @@
               <ion-toolbar>
                 <ion-title>Edit Price:</ion-title>
                 <ion-buttons slot="end">
-                  <ion-button color="primary" (click)="cancel()">Cancel</ion-button>
+                  <ion-button color="" (click)="cancel()">Cancel</ion-button>
                 </ion-buttons>
               </ion-toolbar>
                 <ion-list>
                   <ion-item>
                      <ion-input placeholder="Price"></ion-input>
                   </ion-item>
-                    <ion-button (click)="confirm()" color="primary" type="submit" [disabled]="!credentials.valid">Save</ion-button>
+                    <ion-button (click)="confirm()" color="" type="submit" [disabled]="!credentials.valid">Save</ion-button>
                 </ion-list>
             </ion-content>
           </ng-template>
