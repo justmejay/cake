@@ -53,6 +53,20 @@ export interface Sizes{
  price: string
 
 }
+
+export interface Order{
+  //id is optional and not required
+  id?: string,
+  userdetails: any,
+  cakedetails: any,
+  topdetails: any,
+  layerdetails: any,
+  sizedetails: any,
+  message: any,
+  total: any
+}
+
+
 @Injectable({
   providedIn: 'root',
 })
@@ -64,7 +78,7 @@ export class AvatarService {
   constructor(
     private auth: Auth,
     private firestore: Firestore,
-    private storage: Storage
+    private storage: Storage,
   ) {}
 
   getUserProfile() {
@@ -83,6 +97,9 @@ export class AvatarService {
       return cakepass;
 
   }
+
+
+
 
 
   async  addToppings({topname, toprice}){
@@ -258,6 +275,14 @@ export class AvatarService {
     const cakesByIdRef = doc(this.firestore, `sizes/${id}`)
     return docData(cakesByIdRef, {idField: 'id'}) as Observable <Sizes>
   }
-  
+
+
+
+  addOrder(order:Order){
+    const orderRef = collection(this.firestore, 'orders')
+    return addDoc (orderRef, order)
+  }
+
+
 
 }

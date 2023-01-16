@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Photo } from '@capacitor/camera';
 import { AvatarService } from '../services/avatar.service';
+import { Router } from '@angular/router';
 
 
 @Component({
@@ -20,6 +20,7 @@ export class UserporderPage implements OnInit {
   layerdetails: any =[];
   sizedetails: any = [];
   cakedetails: any = [];
+  userdetails: any = [];
   total:any = 0;
   toprice:any;
   sizeprice:any;
@@ -30,7 +31,7 @@ export class UserporderPage implements OnInit {
 
   // cakeImage: string;
 
-  constructor(private route: ActivatedRoute, private avatarService: AvatarService) {
+  constructor(private route: ActivatedRoute, private avatarService: AvatarService, private router: Router) {
 
 
     this.route.queryParams.subscribe((params) =>{
@@ -85,9 +86,14 @@ export class UserporderPage implements OnInit {
 
   
       });
+
+      
+      this.avatarService.getUserProfile().subscribe(res => {
+        this.userdetails = res;
+      });
+      
       
 
-     
     }); 
 
   
@@ -98,6 +104,22 @@ export class UserporderPage implements OnInit {
   ngOnInit() {
 
 }
+
+
+addOrder() {
+  const order = {
+    userdetails: this.userdetails,
+    cakedetails: this.cakedetails,
+    topdetails: this.topdetails,
+    layerdetails: this.layerdetails,
+    sizedetails: this.sizedetails,
+    message: this.message,
+    total: this.total,
+  };
+  this.avatarService.addOrder(order);
+  this.router.navigateByUrl('/user-order', { replaceUrl: true });
+}
+
 
 
 
