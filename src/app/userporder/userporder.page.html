@@ -11,42 +11,42 @@
       <h1>For Pick Up</h1>
     </div>
   </ion-header>
-  <ion-card>
-    <!-- <ion-img class="cake" src="assets/icon/strawberrycake.jpg"></ion-img> -->
-    <!-- <ion-img src="{{ cakeImage }}"></ion-img> -->
+  <ion-card *ngIf="cakedetails">
+    <ion-img class="cake" src="{{cakedetails.imageUrl}}"></ion-img>
+    <h6>{{cakedetails.name}}</h6>
   </ion-card>
   <ion-card>
     <div class="listcustomcake">
       <ion-grid>
-        <ion-row>
+        <ion-row *ngIf="topdetails">
          <ion-col class="title">Toppings</ion-col>
-         <ion-col>{{topping}}</ion-col>
-         <ion-col>+ 0php</ion-col>
+         <ion-col>{{topdetails.toppingsName}}</ion-col>
+         <ion-col>+ {{topdetails.price}} php</ion-col>
         </ion-row>
-         <ion-row>
+         <ion-row *ngIf="layerdetails">
           <ion-col class="title">Layers</ion-col>
-          <ion-col>{{layer}}</ion-col>
-          <ion-col>+ 100php</ion-col>
+          <ion-col>{{layerdetails.layername}}</ion-col>
+          <ion-col>+ {{layerdetails.price}} php</ion-col>
          </ion-row>
-         <ion-row>
+         <ion-row *ngIf="sizedetails">
           <ion-col class="title">Size</ion-col>
-          <ion-col>{{size}}</ion-col>
-          <ion-col>+ 50php</ion-col>
+          <ion-col>{{sizedetails.sizename}}</ion-col>
+          <ion-col>+ {{sizedetails.price}} php</ion-col>
          </ion-row>
          <ion-row>
           <ion-col class="title">Additional Instructions</ion-col>
           <ion-col>Add "{{message}}"</ion-col>
           <ion-col>+ 50php</ion-col>
          </ion-row>
-         <ion-row>
+         <ion-row *ngIf="cakedetails">
           <ion-col class="title">Base Price: </ion-col>
           <ion-col></ion-col>
-          <ion-col>500 php</ion-col>
+          <ion-col>{{cakedetails.price}} php</ion-col>
          </ion-row>
          <ion-row>
           <ion-col class="title">Total Price: </ion-col>
           <ion-col></ion-col>
-          <ion-col>500 php</ion-col>
+          <ion-col>{{total}}</ion-col>
          </ion-row>
       </ion-grid>
     </div>

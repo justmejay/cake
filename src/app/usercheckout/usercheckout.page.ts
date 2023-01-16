@@ -15,6 +15,7 @@ export class UsercheckoutPage implements OnInit {
   layers: any = [];
   sizes: any = [];
   credentials: FormGroup;
+  topcreds:any = []
 
 
   constructor( private activatedRoute:ActivatedRoute, private avatarService: AvatarService, 
@@ -80,7 +81,7 @@ export class UsercheckoutPage implements OnInit {
   //   this.router.navigate(['userporder'], {queryParams:{selectedToppings: this.credentials.value}});
     
     async getValue() {
-      let selectedTopping = this.credentials.get('sToppings').value;
+      let selectedTopping = this.credentials.get('sToppings').value; 
       let selectedLayer = this.credentials.get('sLayers').value;
       let selectedSize = this.credentials.get('sSizes').value;
       let selectedMessage = this.credentials.get('message').value;
@@ -88,9 +89,17 @@ export class UsercheckoutPage implements OnInit {
       console.log('Selected Layer:', selectedLayer);
       console.log('Selected Size:', selectedSize);
       console.log('Selected Message:', selectedMessage);
-      this.router.navigate(['/userporder'], { queryParams: { topping: selectedTopping, layer: selectedLayer, size: selectedSize, message: selectedMessage} });
+      this.router.navigate(['/userporder'], { queryParams: { topping: selectedTopping, layer: selectedLayer, size: selectedSize, message: selectedMessage, idcake: this.idcake} });
+    }
+
+    getop(top){
+
+      var myObj = top.price
+      console.log('Price', myObj)
+
     }
   }
+
 
 
 
