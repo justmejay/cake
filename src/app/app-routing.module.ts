@@ -109,6 +109,10 @@ const routes: Routes = [
     path: 'editoppings',
     loadChildren: () => import('./editoppings/editoppings.module').then( m => m.EditoppingsPageModule)
   },
+  {
+    path: 'sellerorderlist',
+    loadChildren: () => import('./sellerorderlist/sellerorderlist.module').then( m => m.SellerorderlistPageModule)
+  },
 
 
 
