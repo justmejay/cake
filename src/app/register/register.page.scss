@@ -1,11 +1,11 @@
 ion-toolbar{
-    --background: #616CFB;
+    --background: #3050c3;
     color: white;
   }
   ion-content{
      --background: #ECEFF0;
      #header {
-         background-color: #616CFB;
+         background-color: #3050c3;
      }
      form {
       padding-left: 3%;
@@ -25,6 +25,7 @@ ion-toolbar{
          font-size: 18px;
          text-transform: initial;
          border-radius: 50px;
+         --background: #3050c3;
       
      }
      div.error-container{

@@ -1,5 +1,5 @@
 ion-toolbar{
-    --background: #616CFB;
+    --background: #3050c3;
   }
   
   ion-content{
@@ -10,7 +10,7 @@ ion-toolbar{
          display: flex;
          flex-direction: column;
          align-items: center;
-         background-color: #616CFB;
+         background-color: #3050c3;
          margin-bottom: 10%;
   
          h1 {
@@ -39,6 +39,7 @@ ion-toolbar{
          font-size: 18px;
          text-transform: initial;
          border-radius: 50px;
+         --background: #3050c3;
          // box-shadow: 1px 8px 8px 0px;
      }
   }

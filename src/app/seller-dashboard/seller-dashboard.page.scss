@@ -4,24 +4,31 @@ ion-content{
     .container{
         overflow-y: scroll;
         height: 90%; 
-        // --background: #ECEFF0;
+        --background: #ECEFF0;
 
     }
    
+}
+ion-fab-button{
+    --background: #1537b3;
+}
+ion-toolbar{
+    --background: #3050c3;
+    color: white;
 }
 
 ion-card{
     display: flex;
     flex-direction: row;
     border-radius: 25px;
-    --background: #F1F9FF;
+    --background: #cee2fe;
 
     margin: 2rem;
     // padding: 0.8rem;
     .carddetails{
         display: flex;
         flex-direction: column;
-        padding: 0.3rem;
+        // padding: 0.3rem;
         // margin-left: 0.8rem;
         // margin-top: 0.8rem;
     }
