@@ -29,7 +29,7 @@
                    <ion-input formControlName="topname" placeholder="Strawberry"></ion-input>
                    <ion-input formControlName="toprice" placeholder="Price"></ion-input>
                 </ion-item>
-                  <ion-button (click)="confirm()" color="" type="submit" [disabled]="!credentials.valid">Save</ion-button>
+                  <ion-button (click)="confirm()" shape="round" expand="block" type="submit" [disabled]="!credentials.valid">Save</ion-button>
               </ion-list>
             </form>
           </ion-content>
@@ -56,7 +56,7 @@
     <ion-list *ngFor="let layer of layers">
       <ion-item>
         <ion-label>{{layer.layername}}</ion-label>
-        <ion-button (click)="editP(layer)" ><ion-icon name="create"></ion-icon></ion-button>
+        <ion-button class="edit" (click)="editP(layer)" ><ion-icon name="create-outline"></ion-icon></ion-button>
         <ion-modal trigger="openmodalayer">
           <ng-template>
             <ion-content>
@@ -85,7 +85,7 @@
     <ion-list *ngFor="let size of sizes">
       <ion-item>
         <ion-label>{{size.sizename}}</ion-label>
-        <ion-button (click)="editPz(size)"><ion-icon name="create"></ion-icon></ion-button>
+        <ion-button class="edit" (click)="editPz(size)"><ion-icon name="create-outline"></ion-icon></ion-button>
         <ion-modal trigger="open-modal2">
           <ng-template>
             <ion-content>

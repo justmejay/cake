@@ -6,15 +6,16 @@
  
 <ion-content>
   <div>
-    <div *ngIf="size"> 
-      <ion-item>
-        <ion-label position="stacked">Price</ion-label>
-        <ion-input [(ngModel)]="size.price"></ion-input>
-      </ion-item>
-     
-    </div>
+    <ion-card>
+      <div *ngIf="size"> 
+        <ion-item>
+          <h3><ion-label position="stacked">Price</ion-label></h3>
+          <ion-input [(ngModel)]="size.price"></ion-input>
+        </ion-item>
+      </div>
+    </ion-card>
   
-    <ion-button (click)="updatePrice()" expand="block" color="success" shape="round">
+    <ion-button (click)="updatePrice()" expand="block" shape="round">
       <ion-icon slot="start" name="save"></ion-icon>
       Update
     </ion-button>

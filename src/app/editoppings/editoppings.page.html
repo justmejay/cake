@@ -6,19 +6,20 @@
  
 <ion-content>
   <div>
-    <div *ngIf="top">  
-      <ion-item>
-        <ion-label position="stacked">Toppings Name</ion-label>
-        <ion-input [(ngModel)]="top.toppingsName"></ion-input>
-      </ion-item>
-      <ion-item>
-        <ion-label position="stacked">Price</ion-label>
-        <ion-input [(ngModel)]="top.price"></ion-input>
-      </ion-item>
-     
-    </div>
+    <ion-card>
+      <div *ngIf="top">  
+        <ion-item>
+          <h3><ion-label position="stacked">Toppings Name:</ion-label></h3>
+          <ion-input [(ngModel)]="top.toppingsName"></ion-input>
+        </ion-item>
+        <ion-item>
+          <h3><ion-label position="stacked">Price:</ion-label></h3>
+          <ion-input [(ngModel)]="top.price"></ion-input>
+        </ion-item>
+      </div>
+    </ion-card>
 
-    <ion-button (click)="updatePrice()" expand="block" color="success" shape="round">
+    <ion-button (click)="updatePrice()" expand="block" shape="round">
       <ion-icon slot="start" name="save"></ion-icon>
       Update
     </ion-button>
