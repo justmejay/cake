@@ -31,6 +31,7 @@ export class AddcakePage implements OnInit {
     private router: Router,
     private avatarService: AvatarService
   ) {
+    console.log("test")
    }
 
    get name() {
