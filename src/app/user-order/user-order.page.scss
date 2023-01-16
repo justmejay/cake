@@ -4,7 +4,7 @@ ion-card-header {
     flex-flow: column-reverse;
   }
 ion-toolbar{
-    --background: #616CFB;
+    --background:#3050c3;
     color: white;
 }
 ion-content{
@@ -15,7 +15,7 @@ ion-card{
     padding: 3%;
 }
 ion-card.status{
-    --background: #616bfbe0;
+    --background: #3050c3be;
     ion-card-title{
         color: white;
     }

@@ -1,12 +1,11 @@
-ion-header{
+ion-toolbar{
+    --background: #3050c3;
+    color: white;
+    text-align: center;
     ion-button{
-        --background: white;
-        color: black;
+        --background: #3050c3;
+        color: white;
         box-shadow: none;
-    }
-    ion-toolbar{
-        align-items: center;
-        justify-content: center;
     }
 }
 ion-content{
@@ -28,4 +27,7 @@ ion-content{
         border-radius: 25px;
         border: 2px solid #95989A;
     }
+}
+ion-button{
+    --background:#3050c3;
 }

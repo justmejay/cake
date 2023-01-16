@@ -23,7 +23,7 @@
       <ion-note slot="error" *ngIf="( password.dirty || password.touched) && password.errors">Minimum 6 Characters!!</ion-note>
 
       <div>
-        <ion-button type="submit" [disabled]="!credentials.valid" expand="block" color="tertiary" shape="round">Log In</ion-button>
+        <ion-button type="submit" [disabled]="!credentials.valid" expand="block" shape="round">Log In</ion-button>
       </div>
       <ion-label position=""><a routerLink="/register"> Don't have an account? Sign up   here</a></ion-label>
 

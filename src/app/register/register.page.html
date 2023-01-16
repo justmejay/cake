@@ -41,7 +41,7 @@
         </ion-item>
         <ion-note slot="error" *ngIf="( password.dirty || password.touched) && password.errors">Minimum 6 Characters!!!</ion-note>
       </ion-list>
-      <ion-button  type="submit" expand="block" [disabled]="!credentials.valid" color="tertiary" shape="round">Create Account</ion-button>
+      <ion-button  type="submit" expand="block" [disabled]="!credentials.valid" shape="round">Create Account</ion-button>
       <ion-button fill="clear" expand="block" [routerLink]="['/login']">I already have an account.</ion-button> 
     
     </form>
