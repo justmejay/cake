@@ -28,6 +28,16 @@ const routes: Routes = [
       },
       
       {
+        path:'sellerorderlist',
+        children:[
+          {
+            path: '',
+            loadChildren: () => import('../sellerorderlist/sellerorderlist.module').then( m => m.SellerorderlistPageModule)
+          }
+        ] 
+      },
+      
+      {
         path:'',
         redirectTo: 'seller-accounts',
         pathMatch: 'full'

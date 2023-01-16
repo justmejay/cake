@@ -1,0 +1,33 @@
+ion-toolbar{
+    --background: #3050c3;
+    color: white;
+
+}
+ion-content{
+    --background: #ECEFF0;
+}
+ion-card{
+    border-radius: 25px;
+}
+ion-card-header{
+    margin-left: 3%;
+}
+ion-icon{
+    margin-right: 2%;
+}
+ion-button{
+    padding-left: 2%;
+    color: white;
+    text-transform: initial;
+}
+ion-button.accept{
+    --background:#6aa8ff;
+}
+ion-button.decline{
+    --background:#fd7b7b;
+}
+div.button{
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+}
