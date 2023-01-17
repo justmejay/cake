@@ -26,7 +26,7 @@ export class AuthService {
       const imageUrl = ""
       const creds = "false"
       const userDocRef = doc(this.firestore, `users/${userget.uid}`);
-      await setDoc(userDocRef, {email,imageUrl,firstName: fname, lastName: lname, seller: creds });
+      await setDoc(userDocRef, {email,imageUrl,firstName: fname, lastName: lname, seller: creds, uid: userget.uid });
       
       return user;
       return userDocRef;
