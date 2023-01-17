@@ -8,12 +8,12 @@
 
 <ion-content>   
       <ng-container  *ngFor = "let order of orders">
-      <ion-card *ngIf="order.userdetails.uid == uids;" >
+      <ion-card *ngIf="order.userdetails.uid == profile;" >
         <ion-card-header>
           <ion-card-title>You have placed an order</ion-card-title>
         </ion-card-header>
 
-        <ion-card-content *ngIf="order.userdetails.uid == uids;">
+        <ion-card-content>
           <ion-list lines="none">
             <ion-item>
               <ion-label>Toppings:</ion-label>

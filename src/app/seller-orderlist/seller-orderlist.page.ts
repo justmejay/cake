@@ -22,7 +22,6 @@ export class SellerOrderlistPage implements OnInit {
     
     this.avatarService.getorders().subscribe(res=>{
       this.orders = res  
-      console.log(this.orders)
 
     })
 
@@ -42,7 +41,6 @@ export class SellerOrderlistPage implements OnInit {
 
   async accept(order){
     const id = order.id
-    console.log(id)
 
 
   const loading = await this.loadingctrl.create();
@@ -55,14 +53,13 @@ export class SellerOrderlistPage implements OnInit {
 
   async decline(order){
     const id = order.id
-    console.log(id)
 
 
   const loading = await this.loadingctrl.create();
     await loading.present();
     this.avatarService.getdeclined(id)
     await loading.dismiss();
-    this.showAlert('Success', 'Order Decline!')
+    this.showAlert('Success', 'Order Declined!')
 
   }
 
