@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AlertController, LoadingController, ModalController, ToastController } from '@ionic/angular';
 import { AvatarService } from '../services/avatar.service';
 
 @Component({
@@ -10,7 +12,13 @@ export class SellerOrderlistPage implements OnInit {
   
   orders: any = []
 
-  constructor( private avatarService: AvatarService) { 
+  constructor( private avatarService: AvatarService,
+    private router: Router,
+    private modalController: ModalController,
+    private toastCtrl: ToastController,
+    private loadingctrl: LoadingController,
+    private alertctrl: AlertController
+    ) { 
     
     this.avatarService.getorders().subscribe(res=>{
       this.orders = res  
@@ -22,9 +30,13 @@ export class SellerOrderlistPage implements OnInit {
 
   async complete(order){
     const id = order.id
-    console.log(id)
 
-  this.avatarService.getcompleted(id)
+    const loading = await this.loadingctrl.create();
+    await loading.present();
+    this.avatarService.getcompleted(id)
+    await loading.dismiss();
+    this.showAlert('Success', 'Order Completed!')
+
 
   }
 
@@ -32,7 +44,12 @@ export class SellerOrderlistPage implements OnInit {
     const id = order.id
     console.log(id)
 
-  this.avatarService.getaccepted(id)
+
+  const loading = await this.loadingctrl.create();
+    await loading.present();
+    this.avatarService.getaccepted(id)
+    await loading.dismiss();
+    this.showAlert('Success', 'Order Accepted!')
 
   }
 
@@ -40,11 +57,26 @@ export class SellerOrderlistPage implements OnInit {
     const id = order.id
     console.log(id)
 
-  this.avatarService.getdeclined(id)
+
+  const loading = await this.loadingctrl.create();
+    await loading.present();
+    this.avatarService.getdeclined(id)
+    await loading.dismiss();
+    this.showAlert('Success', 'Order Decline!')
 
   }
 
   ngOnInit() {
+  }
+
+  
+  async showAlert(header, message) {
+    const alert = await this.alertctrl.create({
+      header,
+      message,
+      buttons: ['OK'],
+    });
+    await alert.present();
   }
 
 }

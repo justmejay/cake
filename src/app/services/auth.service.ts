@@ -17,7 +17,6 @@ export class AuthService {
   
   
   constructor(private auth: Auth, private firestore: Firestore) {
-    this.uid = this.auth.currentUser.uid
   }
 
   async register({ email, password, fname, lname }) {

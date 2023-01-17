@@ -119,11 +119,7 @@ async addOrder() {
     status: "Pending",
   };
   const get = await this.avatarService.addOrder(order);
-  if(get){
 
-    this.avatarService.addOrderg(order, get.id)
-
-  }
 
   this.router.navigateByUrl('/usertabs/user-order', { replaceUrl: true });
 }
