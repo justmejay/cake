@@ -1,7 +1,7 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Custom Orders
+      List of Orders
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,7 +10,8 @@
     <ng-container *ngFor = "let order of orders">
       <ion-card *ngIf="order.status != 'Completed';">
         <ion-card-header>
-          <ion-card-title>You have placed an order</ion-card-title>
+          <ion-card-title>{{order.userdetails.firstName}} {{order.userdetails.lastName}} placed an order</ion-card-title>
+          <h6>{{order.userdetails.email}}</h6>
         </ion-card-header>
 
         <ion-card-content>
@@ -18,15 +19,13 @@
             <ion-item>
               <ion-label>Toppings:</ion-label>
               <p>{{order.topdetails.toppingsName}}</p>
-             
-
             </ion-item>
             <ion-item>
               <ion-label>Layer:</ion-label>
               <p>{{order.layerdetails.layername}}</p>
             </ion-item>
             <ion-item>
-              <ion-label>Layers:</ion-label>
+              <ion-label>Size:</ion-label>
               <p>{{order.sizedetails.sizename}}</p>
             </ion-item>
             <ion-item>
@@ -47,9 +46,9 @@
           <ion-card-title class="orderstatus">Order is {{order.status }}</ion-card-title>
         </ion-card>
         <div class="button">
-            
-          <ion-button (click)="decline(order)"  *ngIf="order.status == 'Pending';" class="decline" shape="round"><ion-icon name="close-circle-outline"></ion-icon> Decline</ion-button>
+
           <ion-button (click)="accept(order)"  *ngIf="order.status == 'Pending';" class="accept" shape="round"><ion-icon name="checkmark-circle-outline"></ion-icon> Accept</ion-button>
+          <ion-button (click)="decline(order)"  *ngIf="order.status == 'Pending';" class="decline" shape="round"><ion-icon name="close-circle-outline"></ion-icon> Decline</ion-button>
           <ion-button (click)="complete(order)" *ngIf="order.status == 'Accepted';" class="complete"  shape="round"><ion-icon name="checkmark-circle-outline"></ion-icon> Complete</ion-button>
 
         </div>

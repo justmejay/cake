@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CompletedordersPage } from '../completedorders/completedorders.page';
 import { AuthService } from '../services/auth.service';
 import { AvatarService } from '../services/avatar.service';
 
@@ -11,6 +12,7 @@ export class UserOrderPage implements OnInit {
   userdetails: any = [];
   orders: any = []
   uids :any 
+  profile:any = []
 
 
   constructor(
@@ -18,19 +20,21 @@ export class UserOrderPage implements OnInit {
     private auth: AuthService
   ) {
 
-    this.uids = this.auth.uid
-    console.log(this.uids)
+   
 
 
     this.avatarService.getorders().subscribe(res=>{
       this.orders = res  
-      console.log(this.orders)
+    })
+
+    this.avatarService.getUserProfile().subscribe(res=>{
+      this.profile = res  
+      this.profile = this.profile.uid
+      console.log(this.profile)
     })
 
 
-    this.avatarService.getUserProfile().subscribe(res => {
-      this.userdetails = res;
-    });
+    
 
    }
   
