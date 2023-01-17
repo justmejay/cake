@@ -300,13 +300,7 @@ export class AvatarService {
   }
 
   
-  addOrderg(order:Order, id:any){
-    const user  = this.auth.currentUser
-    const orderRef = doc(this.firestore, `users/${user.uid}/orders/${id}`)
-    setDoc (orderRef, order)
-
-
-  }
+ 
 
   getorders(): Observable<Order[]>{
     const cakesRef = collection(this.firestore, `orders`)
