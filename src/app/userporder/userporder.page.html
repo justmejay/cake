@@ -1,9 +1,13 @@
-<ion-toolbar>
-  <ion-buttons slot="start">
-    <ion-back-button default-href="#"></ion-back-button>
-  </ion-buttons>
-  <ion-title>Place Order</ion-title>
-</ion-toolbar>
+
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/usertabs/user-dashboard">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Place Order</ion-title>
+  </ion-toolbar>
+
 
 <ion-content>
   <ion-header>
@@ -51,5 +55,5 @@
       </ion-grid>
     </div>
   </ion-card>
-  <ion-button shape="round" color="tertiary" class="placeorder" (click)="addOrder(order)">Place Order</ion-button>
+  <ion-button shape="round" class="placeorder" (click)="addOrder(order)">Place Order</ion-button>
 </ion-content>

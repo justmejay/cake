@@ -1,47 +1,55 @@
-<ion-toolbar>
-  <ion-button slot="start"><a routerLink="/usertabs/user-dashboard"><ion-icon name="arrow-back-outline"></ion-icon></a></ion-button>
-    <ion-title>CHECKOUT PAGE</ion-title>
-</ion-toolbar>
+<ion-header>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button routerLink="/usertabs/user-dashboard">
+        <ion-icon name="arrow-back-outline"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+    <ion-title>Checkout</ion-title>
+  </ion-toolbar>
+</ion-header>
 
 <ion-content>
-
-  <form  [formGroup]="credentials" (ngSubmit)="getValue()">
-  <div  class="toppings">
-    <ion-label>Toppings</ion-label>
-    <ion-list lines="none">
-      <ion-item >
-        <ion-select formControlName="sToppings"   interface="action-sheet" placeholder="Select Topping">
-          <ion-select-option *ngFor="let topping of toppings" value="{{topping.id}}">{{topping.toppingsName}} - {{topping.price}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
-  </div>
-
-  <div class="layers">
-    <ion-label>Layers</ion-label>
-    <ion-list lines="none">
-      <ion-item>
-        <ion-select formControlName="sLayers"  interface="action-sheet" placeholder="Select Layer">
-          <ion-select-option *ngFor="let layer of layers" value="{{layer.id}}">{{layer.layername}} - {{layer.price}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
-  </div>
-  <div class="size">
-    <ion-label>Size</ion-label>
-    <ion-list lines="none">
-      <ion-item>
-        <ion-select formControlName="sSizes"  interface="action-sheet" placeholder="Select Size">
-          <ion-select-option *ngFor="let size of sizes" value="{{size.id}}">{{size.sizename}} - {{size.price}}</ion-select-option>
-        </ion-select>
-      </ion-item>
-    </ion-list>
-  </div>
-  <div class="customtext">
-    <ion-label>Additional Instructions:</ion-label>
-    <ion-input formControlName="message" placeholder="Add Happy 18th Birthday"></ion-input>
-  </div>
+<ion-card>
   
-  <ion-button expand="block" type="submit" shape="round" [disabled]="!credentials.valid">Checkout</ion-button>
-</form>
+  <form  [formGroup]="credentials" (ngSubmit)="getValue()">
+    <div  class="toppings">
+      <ion-label>Toppings</ion-label>
+      <ion-list lines="none">
+        <ion-item >
+          <ion-select formControlName="sToppings"   interface="action-sheet" placeholder="Select Topping">
+            <ion-select-option *ngFor="let topping of toppings" value="{{topping.id}}">{{topping.toppingsName}} - {{topping.price}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </div>
+  
+    <div class="layers">
+      <ion-label>Layers</ion-label>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-select formControlName="sLayers"  interface="action-sheet" placeholder="Select Layer">
+            <ion-select-option *ngFor="let layer of layers" value="{{layer.id}}">{{layer.layername}} - {{layer.price}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="size">
+      <ion-label>Size</ion-label>
+      <ion-list lines="none">
+        <ion-item>
+          <ion-select formControlName="sSizes"  interface="action-sheet" placeholder="Select Size">
+            <ion-select-option *ngFor="let size of sizes" value="{{size.id}}">{{size.sizename}} - {{size.price}}</ion-select-option>
+          </ion-select>
+        </ion-item>
+      </ion-list>
+    </div>
+    <div class="customtext">
+      <ion-label>Additional Instructions:</ion-label>
+      <ion-input formControlName="message" placeholder="Add Happy 18th Birthday"></ion-input>
+    </div>
+    
+    <ion-button expand="block" type="submit" shape="round" [disabled]="!credentials.valid">Checkout</ion-button>
+  </form>
+</ion-card>
 </ion-content>

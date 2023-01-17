@@ -1,9 +1,12 @@
 ion-toolbar{
     --background: #3050c3;
   }
-  
+  ion-note{
+    color: red;
+    font-weight: bold;
+  }
   ion-content{
-     // --background: #616CFB;
+     --background: #ECEFF0;
   
      #header {
          
@@ -50,4 +53,7 @@ ion-toolbar{
       justify-content: center;
   }
   
-  
+ ion-card{
+    border-radius: 25px;
+    box-shadow: 5 5 5 5;
+ } 
