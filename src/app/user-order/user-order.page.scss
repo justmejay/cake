@@ -8,6 +8,7 @@ ion-content{
 }
 ion-card{
     border-radius: 25px;
+
 }
 ion-card-header{
     margin-left: 3%;
@@ -37,4 +38,16 @@ ion-card.orderstatus{
 ion-card-title.orderstatus{
     padding: 5%; 
     color: white;
+}
+ion-item{
+    margin-top: -3%;
+}
+ion-item.price{
+    margin-top: -8%;
+}
+ion-fab-button{
+    --background: #3050c3d1;
+}
+p{
+    margin-top: -7%;
 }

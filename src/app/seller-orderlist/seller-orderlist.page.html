@@ -3,6 +3,17 @@
     <ion-title>
       List of Orders
     </ion-title>
+    <ion-segment value="buttons" [(ngModel)]="selectTabs">
+      <ion-segment-button value="all" class="all">
+        Pending
+      </ion-segment-button>
+      <ion-segment-button value="accepted" class="accepted">
+        Accepted
+      </ion-segment-button>
+      <ion-segment-button value="declined" class="declined">
+        Declined
+      </ion-segment-button>
+    </ion-segment>
   </ion-toolbar>
 </ion-header>
 
@@ -52,7 +63,7 @@
       </ion-card>
      
     </ng-container>
-    <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end">
       <ion-fab-button>
         <ion-icon name="chevron-up-circle"></ion-icon>
       </ion-fab-button>
@@ -67,6 +78,44 @@
           <ion-icon name="trash-bin-outline"></ion-icon>
         </ion-fab-button>
       </ion-fab-list>
-    </ion-fab>
+    </ion-fab> -->
+
+
+
+
+
+
+
+
+
+<!-- HERE LIES SEGMENT -->
+
+    <div *ngIf ="selectTabs === 'all'">
+      <ion-card >
+        <ion-card-content>
+            <ion-item>
+    
+            </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div *ngIf ="selectTabs === 'accepted'">
+      <ion-card >
+        <ion-card-content>
+            <ion-item>
+    
+            </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </div>
+    <div *ngIf ="selectTabs === 'declined'">
+      <ion-card >
+        <ion-card-content>
+            <ion-item>
+    
+            </ion-item>
+        </ion-card-content>
+      </ion-card>
+    </div>
 </ion-content>
 
