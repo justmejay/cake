@@ -1,6 +1,12 @@
 ion-toolbar{
     --background: #3050c3;
     color: white;
+    ion-title{
+        padding: 5%;
+    }
+    ion-segment-button{
+        color: white;
+    }
 
 }
 ion-content{
