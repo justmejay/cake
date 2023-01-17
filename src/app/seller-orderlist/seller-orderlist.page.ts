@@ -30,10 +30,14 @@ export class SellerOrderlistPage implements OnInit {
   async complete(order){
     const id = order.id
 
-    const loading = await this.loadingctrl.create();
+    const loading = await this.loadingctrl.create({
+      message: 'Declining Order...',
+      duration: 1000,
+      spinner: 'dots',
+  
+    });
     await loading.present();
-    this.avatarService.getcompleted(id)
-    await loading.dismiss();
+    await this.avatarService.getcompleted(id)
     this.showAlert('Success', 'Order Completed!')
 
 
@@ -43,10 +47,14 @@ export class SellerOrderlistPage implements OnInit {
     const id = order.id
 
 
-  const loading = await this.loadingctrl.create();
+    const loading = await this.loadingctrl.create({
+      message: 'Declining Order...',
+      duration: 1000,
+      spinner: 'dots',
+  
+    });
     await loading.present();
-    this.avatarService.getaccepted(id)
-    await loading.dismiss();
+    await this.avatarService.getaccepted(id)
     this.showAlert('Success', 'Order Accepted!')
 
   }
@@ -55,11 +63,15 @@ export class SellerOrderlistPage implements OnInit {
     const id = order.id
 
 
-  const loading = await this.loadingctrl.create();
+  const loading = await this.loadingctrl.create({
+    message: 'Declining Order...',
+    duration: 1000,
+    spinner: 'dots',
+
+  });
     await loading.present();
-    this.avatarService.getdeclined(id)
-    await loading.dismiss();
-    this.showAlert('Success', 'Order Declined!')
+    await this.avatarService.getdeclined(id)
+    await this.showAlert('Success', 'Order Declined!')
 
   }
 

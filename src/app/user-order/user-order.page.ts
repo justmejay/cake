@@ -30,7 +30,6 @@ export class UserOrderPage implements OnInit {
     this.avatarService.getUserProfile().subscribe(res=>{
       this.profile = res  
       this.profile = this.profile.uid
-      console.log(this.profile)
     })
 
 
