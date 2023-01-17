@@ -13,6 +13,9 @@
       <ion-segment-button value="declined" class="declined">
         Declined
       </ion-segment-button>
+      <ion-segment-button value="completed" class="completed">
+        Completed
+      </ion-segment-button>
     </ion-segment>
   </ion-toolbar>
 </ion-header>
@@ -67,12 +70,16 @@
                 <p>{{order.sizedetails.sizename}}</p>
               </ion-item>
               <ion-item>
-                <ion-grid>
+                <!-- <ion-grid>
                   <ion-col>
                     <ion-label>Additional Instructions:</ion-label>
                   </ion-col>
                   <ion-col><p>{{order.message}}</p></ion-col>
-                </ion-grid>
+                </ion-grid> -->
+                <div class="addinst">
+                  <ion-label>Additional Instructions:</ion-label>
+                  <p>{{order.message}}</p>
+                </div>
               </ion-item>
               <ion-item class="price">
                 <ion-label>Price:</ion-label>
@@ -114,12 +121,16 @@
                 <p>{{order.sizedetails.sizename}}</p>
               </ion-item>
               <ion-item>
-                <ion-grid>
+                <!-- <ion-grid>
                   <ion-col>
                     <ion-label>Additional Instructions:</ion-label>
                   </ion-col>
                   <ion-col><p>{{order.message}}</p></ion-col>
-                </ion-grid>
+                </ion-grid> -->
+                <div class="addinst">
+                  <ion-label>Additional Instructions:</ion-label>
+                  <p>{{order.message}}</p>
+                </div>
               </ion-item>
               <ion-item class="price">
                 <ion-label>Price:</ion-label>
@@ -141,7 +152,7 @@
     </div>
     <div *ngIf ="selectTabs === 'declined'">
       <ng-container *ngFor = "let order of orders">
-        <ion-card *ngIf="order.status == 'Completed';">
+        <ion-card *ngIf="order.status == 'Declined';">
           <ion-card-header>
             <ion-card-title>{{order.userdetails.firstName}} {{order.userdetails.lastName}} placed an order</ion-card-title>
             <h6>{{order.userdetails.email}}</h6>
@@ -163,6 +174,57 @@
               <ion-item class="addinst">
                     <ion-label>Additional Instructions:</ion-label>
                   <p>{{order.message}}</p>
+              </ion-item>
+              <ion-item class="price">
+                <ion-label>Price:</ion-label>
+                <p>{{order.total}}</p>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+          <ion-card class="orderstatus">
+            <ion-card-title class="orderstatus">Order is {{order.status }}</ion-card-title>
+          </ion-card>
+          <div class="button">
+            <ion-button (click)="accept(order)"  *ngIf="order.status == 'Pending';" class="accept" shape="round"><ion-icon name="checkmark-circle-outline"></ion-icon> Accept</ion-button>
+            <ion-button (click)="decline(order)"  *ngIf="order.status == 'Pending';" class="decline" shape="round"><ion-icon name="close-circle-outline"></ion-icon> Decline</ion-button>
+            <ion-button (click)="complete(order)" *ngIf="order.status == 'Accepted';" class="complete"  shape="round"><ion-icon name="checkmark-circle-outline"></ion-icon> Complete</ion-button>
+          </div>
+        </ion-card>
+       
+      </ng-container>
+    </div>
+    <div *ngIf ="selectTabs === 'completed'">
+      <ng-container *ngFor = "let order of orders">
+        <ion-card *ngIf="order.status == 'Completed';">
+          <ion-card-header>
+            <ion-card-title>{{order.userdetails.firstName}} {{order.userdetails.lastName}} placed an order</ion-card-title>
+            <h6>{{order.userdetails.email}}</h6>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list lines="none">
+              <ion-item>
+                <ion-label>Toppings:</ion-label>
+                <p>{{order.topdetails.toppingsName}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label>Layer:</ion-label>
+                <p>{{order.layerdetails.layername}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label>Size:</ion-label>
+                <p>{{order.sizedetails.sizename}}</p>
+              </ion-item>
+              <ion-item>
+                <!-- <ion-grid>
+                  <ion-col>
+                    <ion-label>Additional Instructions:</ion-label>
+                  </ion-col>
+                  <ion-col><p>{{order.message}}</p></ion-col>
+                </ion-grid> -->
+                <div class="addinst">
+                  <ion-label>Additional Instructions:</ion-label>
+                  <p>{{order.message}}</p>
+                </div>
               </ion-item>
               <ion-item class="price">
                 <ion-label>Price:</ion-label>
