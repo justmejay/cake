@@ -1,25 +1,40 @@
-/* iOS places the subtitle above the title */
-ion-card-header {
-    display: flex;
-    flex-flow: column-reverse;
-  }
 ion-toolbar{
-    --background:#3050c3;
+    --background: #3050c3;
     color: white;
+
 }
 ion-content{
     --background: #ECEFF0;
 }
 ion-card{
     border-radius: 25px;
-    padding: 3%;
 }
-ion-card.status{
-    --background: #3050c3be;
-    ion-card-title{
-        color: white;
-    }
-    ion-card-subtitle{
-        color: white;
-    }
+ion-card-header{
+    margin-left: 3%;
+}
+ion-icon{
+    margin-right: 2%;
+}
+ion-button{
+    padding-left: 2%;
+    color: white;
+    text-transform: initial;
+}
+ion-button.accept{
+    --background:#6aa8ff;
+}
+ion-button.decline{
+    --background:#fd7b7b;
+}
+div.button{
+    display: flex;
+    flex-direction: column;
+    margin: 3%;
+}
+ion-card.orderstatus{
+    --background: #3050c3;
+}
+ion-card-title.orderstatus{
+    padding: 5%; 
+    color: white;
 }

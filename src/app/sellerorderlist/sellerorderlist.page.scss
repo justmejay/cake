@@ -31,3 +31,10 @@ div.button{
     flex-direction: column;
     margin: 3%;
 }
+ion-card.orderstatus{
+    --background: #3050c3;
+}
+ion-card-title.orderstatus{
+    padding: 5%; 
+    color: white;
+}
