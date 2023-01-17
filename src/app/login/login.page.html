@@ -1,33 +1,26 @@
-<ion-header class="ion-no-border">
-  <ion-toolbar>
-    <!-- <ion-title>Cake Customs</ion-title> -->
-    
-
-  </ion-toolbar>
-  
-</ion-header>
-
 <ion-content>
   <div id="header">
     <h1>Login</h1>
-    <img src="assets/Cake.png" alt="">
+      <img style="height: 70%; width: 70%;" src="assets/Cake.png" alt="">
   </div>
 
   <div id="whitebg">
-    <form [formGroup]="credentials" (ngSubmit)="login()" id="form">
-      <ion-input type="text" formControlName="email" placeholder="Email"></ion-input>
-      <ion-note slot="error" *ngIf="( email.dirty || email.touched) && email.errors">Invalid Email!!</ion-note>
-
-
-      <ion-input type="password" formControlName="password" placeholder="Password" shape="round"></ion-input>
-      <ion-note slot="error" *ngIf="( password.dirty || password.touched) && password.errors">Minimum 6 Characters!!</ion-note>
-
-      <div>
-        <ion-button type="submit" [disabled]="!credentials.valid" expand="block" shape="round">Log In</ion-button>
-      </div>
-      <ion-label position=""><a routerLink="/register"> Don't have an account? Sign up   here</a></ion-label>
-
-    </form>
+    <ion-card>
+      <form [formGroup]="credentials" (ngSubmit)="login()" id="form">
+        <ion-input type="text" formControlName="email" placeholder="Email"></ion-input>
+        <ion-note slot="error" *ngIf="( email.dirty || email.touched) && email.errors"><ion-icon name="alert-circle-outline"></ion-icon>  Invalid Email!</ion-note>
+  
+  
+        <ion-input type="password" formControlName="password" placeholder="Password" shape="round"></ion-input>
+        <ion-note slot="error" *ngIf="( password.dirty || password.touched) && password.errors"><ion-icon name="alert-circle-outline">  </ion-icon>Minimum 6 Characters! </ion-note>
+  
+        <div>
+          <ion-button type="submit" [disabled]="!credentials.valid" expand="block" shape="round">Log In</ion-button>
+        </div>
+        <ion-label position=""><a routerLink="/register"> Don't have an account? Sign up   here</a></ion-label>
+  
+      </form>
+    </ion-card>
   </div>
 
 
