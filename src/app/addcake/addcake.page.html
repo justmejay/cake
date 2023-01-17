@@ -12,7 +12,6 @@
 <ion-content>
   <form [formGroup]="credentials" (ngSubmit)="addcakeDetails()">
 <ion-button class="addimage" (click)="addImage()" expand="block" shape="round">Insert Cake Image</ion-button>
-<img [src]="getSafeUrl()" alt="">
 <ion-card class="price">
   <ion-card-content>
     <ion-list>
