@@ -22,19 +22,18 @@ export class UserporderPage implements OnInit {
   sizedetails: any = [];
   cakedetails: any = [];
   userdetails: any = [];
-  total:any = 0;
+  total:number = 0;
   toprice:any;
   sizeprice:any;
   layerprice:any;
-
+  cakeprice:any;
 
 
 
   // cakeImage: string;
 
   constructor(private route: ActivatedRoute, private avatarService: AvatarService, private router: Router) {
-
-
+    
     this.route.queryParams.subscribe((params) =>{
       // this.topping = params.topping;
       // this.layer = params.layer;
@@ -48,62 +47,74 @@ export class UserporderPage implements OnInit {
 
 
 
-      
-      console.log(this.cakeid)
 
-
-      this.avatarService.getCakeById(this.cakeid).subscribe(res => {
-        this.cakedetails = res;
-
-        this.total = this.total + parseInt(this.cakedetails.price)
-  
-      });
 
       this.avatarService.getTopById(this.topping).subscribe(res => {
         this.topdetails = res;
-
+    
         this.toprice = parseInt(this.topdetails.price);
-        this.total = this.total + this.toprice;
-        console.log(this.total)
-  
-  
+    
+    
       });
-
+    
+    
       this.avatarService.getlayerById(this.layer).subscribe(res => {
         this.layerdetails = res;
-
+    
         this.layerprice = parseInt(this.layerdetails.price);
-        this.total = this.total + this.layerprice
-
-        console.log(this.total)
-
-  
+    
+    
       });
-
+      
       this.avatarService.getsizeById(this.size).subscribe(res => {
         this.sizedetails = res;
-        this.total = this.total + parseInt(this.sizedetails.price) + 50;
-        console.log(this.total)
+        this.sizeprice = parseInt(this.sizedetails.price);
 
-  
+    
+    
       });
-
-      
+    
       this.avatarService.getUserProfile().subscribe(res => {
         this.userdetails = res;
       });
-      
+        
+    
+      this.avatarService.getCakeById(this.cakeid).subscribe(res => {
+        this.cakedetails = res;
+    
+        this.cakeprice =  parseInt(this.cakedetails.price)
+
+
+    
+      });
       
 
-    }); 
+
+  });
+  }
+
+  
+getTotal(){
+  const order = {
+    userdetails: this.userdetails,
+    cakedetails: this.cakedetails,
+    topdetails: this.topdetails,
+    layerdetails: this.layerdetails,
+    sizedetails: this.sizedetails,
+    message: this.message,
+    total: parseInt(this.topdetails.price) + parseInt(this.cakedetails.price) + parseInt(this.layerdetails.price) + parseInt(this.sizedetails.price) + 50,
+    status: "Pending",
+  };
+console.log(order.total)
+}
 
   
 
- 
-   }
-
   ngOnInit() {
 
+    
+
+  
 }
 
 
@@ -115,7 +126,7 @@ async addOrder() {
     layerdetails: this.layerdetails,
     sizedetails: this.sizedetails,
     message: this.message,
-    total: this.total,
+    total: parseInt(this.topdetails.price) + parseInt(this.cakedetails.price) + parseInt(this.layerdetails.price) + parseInt(this.sizedetails.price) + 50,
     status: "Pending",
   };
   const get = await this.avatarService.addOrder(order);

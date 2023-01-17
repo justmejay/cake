@@ -70,7 +70,7 @@ export class UsercheckoutPage implements OnInit {
       sToppings: ['', [Validators.required]],
       sLayers: ['', [Validators.required,]], 
       sSizes: ['', [Validators.required,]],
-      message: ['', []],
+      message: ['', [Validators.required]],
 
     });
   

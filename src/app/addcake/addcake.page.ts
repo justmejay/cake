@@ -68,7 +68,7 @@ export class AddcakePage implements OnInit {
 
   }
 
-  async getSafeUrl() {
+  async getSafeUrl() { 
     return this.sanitizer.bypassSecurityTrustResourceUrl(this.base64Image);     
 }
 
