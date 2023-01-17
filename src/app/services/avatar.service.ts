@@ -1,6 +1,6 @@
 import { Injectable, Input } from '@angular/core';
 import { Auth } from '@angular/fire/auth';
-import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, deleteDoc } from '@angular/fire/firestore';
+import { doc, docData, Firestore, setDoc, collection, addDoc, collectionData, deleteDoc, where } from '@angular/fire/firestore';
 import {
   getDownloadURL,
   ref,
@@ -8,9 +8,9 @@ import {
   uploadString,
 } from '@angular/fire/storage';
 import { Photo } from '@capacitor/camera';
-import { updateDoc } from 'firebase/firestore';
+import { updateDoc, WhereFilterOp } from 'firebase/firestore';
+import { cpuUsage } from 'process';
 import { Observable } from 'rxjs';
-
 
 
 export interface userData{
@@ -54,6 +54,9 @@ export interface Sizes{
 
 }
 
+
+
+
 export interface Order{
   //id is optional and not required
   id?: string,
@@ -87,6 +90,8 @@ export class AvatarService {
     const userDocRef = doc(this.firestore, `users/${user.uid}`);
     return docData(userDocRef); 
   }
+
+
 
  async  addCakeData({name, price}){
 
@@ -219,6 +224,10 @@ export class AvatarService {
     return collectionData(cakesRef, {idField: 'id'}) as Observable<[Cake]>
   }
 
+
+  
+
+
   getToppings(): Observable<Toppings[]>{
     const cakesRef = collection(this.firestore, 'toppings')
     return collectionData(cakesRef, {idField: 'id'}) as Observable<[Toppings]>
@@ -280,10 +289,55 @@ export class AvatarService {
 
 
   addOrder(order:Order){
-    const orderRef = collection(this.firestore, 'orders')
-    return addDoc (orderRef, order)
+    const user  = this.auth.currentUser
+    const orderRef = collection(this.firestore, `orders`)
+    const pass =  addDoc (orderRef, order)
+
+    return pass;
+
+
+
   }
 
+  
+  addOrderg(order:Order, id:any){
+    const user  = this.auth.currentUser
+    const orderRef = doc(this.firestore, `users/${user.uid}/orders/${id}`)
+    setDoc (orderRef, order)
 
+
+  }
+
+  getorders(): Observable<Order[]>{
+    const cakesRef = collection(this.firestore, `orders`)
+    return collectionData(cakesRef, {idField: 'id'}) as Observable<[Order]>
+  }
+
+  getordersg(): Observable<Order[]>{
+    const user = this.auth.currentUser
+    const cakesRef = collection(this.firestore, `users/${user.uid}/orders`)
+    return collectionData(cakesRef, {idField: 'id'}) as Observable<[Order]>
+  }
+
+  getcompleted(id:any){
+
+    const cakeRef = doc(this.firestore, `orders/${id}`)
+    const comp = "Completed"
+    return updateDoc (cakeRef, {status: comp } )
+  }
+
+  getaccepted(id:any){
+
+    const cakeRef = doc(this.firestore, `orders/${id}`)
+    const comp = "Accepted"
+    return updateDoc (cakeRef, {status: comp } )
+  }
+
+  getdeclined(id:any){
+
+    const cakeRef = doc(this.firestore, `orders/${id}`)
+    const comp = "Declined"
+    return updateDoc (cakeRef, {status: comp } )
+  }
 
 }

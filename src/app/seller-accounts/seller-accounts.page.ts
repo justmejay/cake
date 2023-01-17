@@ -78,4 +78,10 @@ export class SellerAccountsPage implements OnInit {
     await modal.present();
    }
 
+   openPrice(){
+    this.router.navigateByUrl('/sellercms', { replaceUrl: true });
+
+
+   }
+
 }

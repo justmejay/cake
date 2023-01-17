@@ -107,7 +107,7 @@ export class UserporderPage implements OnInit {
 }
 
 
-addOrder() {
+async addOrder() {
   const order = {
     userdetails: this.userdetails,
     cakedetails: this.cakedetails,
@@ -118,9 +118,17 @@ addOrder() {
     total: this.total,
     status: "Pending",
   };
-  this.avatarService.addOrder(order);
-  this.router.navigateByUrl('/user-order', { replaceUrl: true });
+  const get = await this.avatarService.addOrder(order);
+  if(get){
+
+    this.avatarService.addOrderg(order, get.id)
+
+  }
+
+  this.router.navigateByUrl('/usertabs/user-order', { replaceUrl: true });
 }
+
+
 
 
 

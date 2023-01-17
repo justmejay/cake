@@ -12,8 +12,13 @@ import { doc, docData, Firestore, setDoc } from '@angular/fire/firestore';
   providedIn: 'root',
 })
 export class AuthService {
+  uid:any
+
   
-  constructor(private auth: Auth, private firestore: Firestore) {}
+  
+  constructor(private auth: Auth, private firestore: Firestore) {
+    this.uid = this.auth.currentUser.uid
+  }
 
   async register({ email, password, fname, lname }) {
     try {
