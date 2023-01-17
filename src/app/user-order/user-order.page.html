@@ -1,25 +1,47 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>Your Order</ion-title>
+    <ion-title>
+      Custom Orders
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <ion-card>
-    <img alt="Silhouette of mountains" src="/assets/icon/strawberrycake.jpg" />
-    <ion-card-header>
-      <ion-card-title>Cheese Cake</ion-card-title>
-      <ion-card-subtitle></ion-card-subtitle>
-    </ion-card-header>
-    <ion-card-content>
-      Please prepare [price]
-    </ion-card-content>
-    <ion-card class="status">
-      <ion-card-content>
-        <ion-card-title>Status:</ion-card-title>
-        <ion-card-subtitle>Still in preparation</ion-card-subtitle>
-      </ion-card-content>
-    </ion-card>
-  </ion-card>
+      <ion-card>
+        <ion-card-header>
+          <ion-card-title>You have placed an order</ion-card-title>
+        </ion-card-header>
 
+        <ion-card-content>
+          <ion-list lines="none">
+            <ion-item>
+              <ion-label>Toppings:</ion-label>
+              <p>Placeholder</p>
+            </ion-item>
+            <ion-item>
+              <ion-label>Flavor:</ion-label>
+              <p>Placeholder</p>
+            </ion-item>
+            <ion-item>
+              <ion-label>Layers:</ion-label>
+              <p>Placeholder</p>
+            </ion-item>
+            <ion-item>
+              <ion-grid>
+                <ion-col>
+                  <ion-label>Additional Instructions:</ion-label>
+                </ion-col>
+                <ion-col><p>Please include "Happy Birthday + Name"</p></ion-col>
+              </ion-grid>
+            </ion-item>
+            <ion-item>
+              <ion-label>Price:</ion-label>
+              <p>Placeholder</p>
+            </ion-item>
+          </ion-list>
+        </ion-card-content>
+        <ion-card class="orderstatus">
+          <ion-card-title class="orderstatus">Order is Pending</ion-card-title>
+        </ion-card>
+      </ion-card>
 </ion-content>

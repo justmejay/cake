@@ -63,7 +63,8 @@ export interface Order{
   layerdetails: any,
   sizedetails: any,
   message: any,
-  total: any
+  total: any,
+  status: any,
 }
 
 

@@ -14,6 +14,7 @@ export class UserporderPage implements OnInit {
   layer: any;
   size: any;
   message: any;
+  status: any;
   cakeid: any;
 
   topdetails: any = [];
@@ -115,6 +116,7 @@ addOrder() {
     sizedetails: this.sizedetails,
     message: this.message,
     total: this.total,
+    status: "Pending",
   };
   this.avatarService.addOrder(order);
   this.router.navigateByUrl('/user-order', { replaceUrl: true });
