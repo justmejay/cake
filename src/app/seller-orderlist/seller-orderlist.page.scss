@@ -1,5 +1,5 @@
 ion-toolbar{
-    --background: #616CFB;
+    --background: #3050c3;
     color: white;
 
 }
@@ -30,4 +30,11 @@ div.button{
     display: flex;
     flex-direction: column;
     margin: 3%;
+}
+ion-card.orderstatus{
+    --background: #3050c3;
+}
+ion-card-title.orderstatus{
+    padding: 5%; 
+    color: white;
 }

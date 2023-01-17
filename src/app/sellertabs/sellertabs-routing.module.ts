@@ -28,11 +28,20 @@ const routes: Routes = [
       },
       
       {
-        path:'sellerorderlist',
+        path:'seller-orderlist',
         children:[
           {
             path: '',
-            loadChildren: () => import('../sellerorderlist/sellerorderlist.module').then( m => m.SellerorderlistPageModule)
+            loadChildren: () => import('../seller-orderlist/seller-orderlist.module').then( m => m.SellerOrderlistPageModule)
+          }
+        ] 
+      },
+      {
+        path:'completedorders',
+        children:[
+          {
+            path: '',
+            loadChildren: () => import('../completedorders/completedorders.module').then( m => m.CompletedordersPageModule)
           }
         ] 
       },

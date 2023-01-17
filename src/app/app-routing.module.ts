@@ -97,7 +97,8 @@ const routes: Routes = [
   {
     path: 'seller-orderlist',
     loadChildren: () => import('./seller-orderlist/seller-orderlist.module').then( m => m.SellerOrderlistPageModule)
-  },  {
+  },
+  {
     path: 'editprice',
     loadChildren: () => import('./editprice/editprice.module').then( m => m.EditpricePageModule)
   },
@@ -108,11 +109,12 @@ const routes: Routes = [
   {
     path: 'editoppings',
     loadChildren: () => import('./editoppings/editoppings.module').then( m => m.EditoppingsPageModule)
+  },  {
+    path: 'completedorders',
+    loadChildren: () => import('./completedorders/completedorders.module').then( m => m.CompletedordersPageModule)
   },
-  {
-    path: 'sellerorderlist',
-    loadChildren: () => import('./sellerorderlist/sellerorderlist.module').then( m => m.SellerorderlistPageModule)
-  },
+
+  
 
 
 

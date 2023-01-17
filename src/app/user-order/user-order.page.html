@@ -6,42 +6,46 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-      <ion-card>
+<ion-content>   
+      <ng-container  *ngFor = "let order of orders">
+      <ion-card *ngIf="order.userdetails.uid == uids;" >
         <ion-card-header>
           <ion-card-title>You have placed an order</ion-card-title>
         </ion-card-header>
 
-        <ion-card-content>
+        <ion-card-content *ngIf="order.userdetails.uid == uids;">
           <ion-list lines="none">
             <ion-item>
               <ion-label>Toppings:</ion-label>
-              <p>Placeholder</p>
+              <p>{{order.topdetails.toppingsName}}</p>
+             
+
             </ion-item>
             <ion-item>
-              <ion-label>Flavor:</ion-label>
-              <p>Placeholder</p>
+              <ion-label>Layer:</ion-label>
+              <p>{{order.layerdetails.layername}}</p>
             </ion-item>
             <ion-item>
               <ion-label>Layers:</ion-label>
-              <p>Placeholder</p>
+              <p>{{order.sizedetails.sizename}}</p>
             </ion-item>
             <ion-item>
               <ion-grid>
                 <ion-col>
                   <ion-label>Additional Instructions:</ion-label>
                 </ion-col>
-                <ion-col><p>Please include "Happy Birthday + Name"</p></ion-col>
+                <ion-col><p>{{order.message}}</p></ion-col>
               </ion-grid>
             </ion-item>
             <ion-item>
               <ion-label>Price:</ion-label>
-              <p>Placeholder</p>
+              <p>{{order.total}}</p>
             </ion-item>
           </ion-list>
         </ion-card-content>
         <ion-card class="orderstatus">
-          <ion-card-title class="orderstatus">Order is Pending</ion-card-title>
+          <ion-card-title class="orderstatus">Order is {{order.status}}</ion-card-title>
         </ion-card>
       </ion-card>
+    </ng-container>
 </ion-content>
