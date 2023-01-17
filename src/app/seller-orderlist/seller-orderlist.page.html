@@ -17,52 +17,7 @@
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-    <ng-container *ngFor = "let order of orders">
-      <ion-card *ngIf="order.status != 'Completed';">
-        <ion-card-header>
-          <ion-card-title>{{order.userdetails.firstName}} {{order.userdetails.lastName}} placed an order</ion-card-title>
-          <h6>{{order.userdetails.email}}</h6>
-        </ion-card-header>
-        <ion-card-content>
-          <ion-list lines="none">
-            <ion-item>
-              <ion-label>Toppings:</ion-label>
-              <p>{{order.topdetails.toppingsName}}</p>
-            </ion-item>
-            <ion-item>
-              <ion-label>Layer:</ion-label>
-              <p>{{order.layerdetails.layername}}</p>
-            </ion-item>
-            <ion-item>
-              <ion-label>Size:</ion-label>
-              <p>{{order.sizedetails.sizename}}</p>
-            </ion-item>
-            <ion-item>
-              <ion-grid>
-                <ion-col>
-                  <ion-label>Additional Instructions:</ion-label>
-                </ion-col>
-                <ion-col><p>{{order.message}}</p></ion-col>
-              </ion-grid>
-            </ion-item>
-            <ion-item class="price">
-              <ion-label>Price:</ion-label>
-              <p>{{order.total}}</p>
-            </ion-item>
-          </ion-list>
-        </ion-card-content>
-        <ion-card class="orderstatus">
-          <ion-card-title class="orderstatus">Order is {{order.status }}</ion-card-title>
-        </ion-card>
-        <div class="button">
-          <ion-button (click)="accept(order)"  *ngIf="order.status == 'Pending';" class="accept" shape="round"><ion-icon name="checkmark-circle-outline"></ion-icon> Accept</ion-button>
-          <ion-button (click)="decline(order)"  *ngIf="order.status == 'Pending';" class="decline" shape="round"><ion-icon name="close-circle-outline"></ion-icon> Decline</ion-button>
-          <ion-button (click)="complete(order)" *ngIf="order.status == 'Accepted';" class="complete"  shape="round"><ion-icon name="checkmark-circle-outline"></ion-icon> Complete</ion-button>
-        </div>
-      </ion-card>
-     
-    </ng-container>
+    
     <!-- <ion-fab slot="fixed" vertical="bottom" horizontal="end">
       <ion-fab-button>
         <ion-icon name="chevron-up-circle"></ion-icon>
@@ -84,38 +39,148 @@
 
 
 
-
+<ion-content>
 
 
 
 <!-- HERE LIES SEGMENT -->
 
     <div *ngIf ="selectTabs === 'all'">
-      <ion-card >
-        <ion-card-content>
-            <ion-item>
-    
-            </ion-item>
-        </ion-card-content>
-      </ion-card>
+      <ng-container *ngFor = "let order of orders">
+        <ion-card *ngIf="order.status == 'Pending';">
+          <ion-card-header>
+            <ion-card-title>{{order.userdetails.firstName}} {{order.userdetails.lastName}} placed an order</ion-card-title>
+            <h6>{{order.userdetails.email}}</h6>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list lines="none">
+              <ion-item>
+                <ion-label>Toppings:</ion-label>
+                <p>{{order.topdetails.toppingsName}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label>Layer:</ion-label>
+                <p>{{order.layerdetails.layername}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label>Size:</ion-label>
+                <p>{{order.sizedetails.sizename}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-grid>
+                  <ion-col>
+                    <ion-label>Additional Instructions:</ion-label>
+                  </ion-col>
+                  <ion-col><p>{{order.message}}</p></ion-col>
+                </ion-grid>
+              </ion-item>
+              <ion-item class="price">
+                <ion-label>Price:</ion-label>
+                <p>{{order.total}}</p>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+          <ion-card class="orderstatus">
+            <ion-card-title class="orderstatus">Order is {{order.status }}</ion-card-title>
+          </ion-card>
+          <div class="button">
+            <ion-button (click)="accept(order)"  *ngIf="order.status == 'Pending';" class="accept" shape="round"><ion-icon name="checkmark-circle-outline"></ion-icon> Accept</ion-button>
+            <ion-button (click)="decline(order)"  *ngIf="order.status == 'Pending';" class="decline" shape="round"><ion-icon name="close-circle-outline"></ion-icon> Decline</ion-button>
+            <ion-button (click)="complete(order)" *ngIf="order.status == 'Accepted';" class="complete"  shape="round"><ion-icon name="checkmark-circle-outline"></ion-icon> Complete</ion-button>
+          </div>
+        </ion-card>
+       
+      </ng-container>
     </div>
     <div *ngIf ="selectTabs === 'accepted'">
-      <ion-card >
-        <ion-card-content>
-            <ion-item>
-    
-            </ion-item>
-        </ion-card-content>
-      </ion-card>
+      <ng-container *ngFor = "let order of orders">
+        <ion-card *ngIf="order.status == 'Accepted';">
+          <ion-card-header>
+            <ion-card-title>{{order.userdetails.firstName}} {{order.userdetails.lastName}} placed an order</ion-card-title>
+            <h6>{{order.userdetails.email}}</h6>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list lines="none">
+              <ion-item>
+                <ion-label>Toppings:</ion-label>
+                <p>{{order.topdetails.toppingsName}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label>Layer:</ion-label>
+                <p>{{order.layerdetails.layername}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label>Size:</ion-label>
+                <p>{{order.sizedetails.sizename}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-grid>
+                  <ion-col>
+                    <ion-label>Additional Instructions:</ion-label>
+                  </ion-col>
+                  <ion-col><p>{{order.message}}</p></ion-col>
+                </ion-grid>
+              </ion-item>
+              <ion-item class="price">
+                <ion-label>Price:</ion-label>
+                <p>{{order.total}}</p>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+          <ion-card class="orderstatus">
+            <ion-card-title class="orderstatus">Order is {{order.status }}</ion-card-title>
+          </ion-card>
+          <div class="button">
+            <ion-button (click)="accept(order)"  *ngIf="order.status == 'Pending';" class="accept" shape="round"><ion-icon name="checkmark-circle-outline"></ion-icon> Accept</ion-button>
+            <ion-button (click)="decline(order)"  *ngIf="order.status == 'Pending';" class="decline" shape="round"><ion-icon name="close-circle-outline"></ion-icon> Decline</ion-button>
+            <ion-button (click)="complete(order)" *ngIf="order.status == 'Accepted';" class="complete"  shape="round"><ion-icon name="checkmark-circle-outline"></ion-icon> Complete</ion-button>
+          </div>
+        </ion-card>
+       
+      </ng-container>
     </div>
     <div *ngIf ="selectTabs === 'declined'">
-      <ion-card >
-        <ion-card-content>
-            <ion-item>
-    
-            </ion-item>
-        </ion-card-content>
-      </ion-card>
+      <ng-container *ngFor = "let order of orders">
+        <ion-card *ngIf="order.status == 'Completed';">
+          <ion-card-header>
+            <ion-card-title>{{order.userdetails.firstName}} {{order.userdetails.lastName}} placed an order</ion-card-title>
+            <h6>{{order.userdetails.email}}</h6>
+          </ion-card-header>
+          <ion-card-content>
+            <ion-list lines="none">
+              <ion-item>
+                <ion-label>Toppings:</ion-label>
+                <p>{{order.topdetails.toppingsName}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label>Layer:</ion-label>
+                <p>{{order.layerdetails.layername}}</p>
+              </ion-item>
+              <ion-item>
+                <ion-label>Size:</ion-label>
+                <p>{{order.sizedetails.sizename}}</p>
+              </ion-item>
+              <ion-item class="addinst">
+                    <ion-label>Additional Instructions:</ion-label>
+                  <p>{{order.message}}</p>
+              </ion-item>
+              <ion-item class="price">
+                <ion-label>Price:</ion-label>
+                <p>{{order.total}}</p>
+              </ion-item>
+            </ion-list>
+          </ion-card-content>
+          <ion-card class="orderstatus">
+            <ion-card-title class="orderstatus">Order is {{order.status }}</ion-card-title>
+          </ion-card>
+          <div class="button">
+            <ion-button (click)="accept(order)"  *ngIf="order.status == 'Pending';" class="accept" shape="round"><ion-icon name="checkmark-circle-outline"></ion-icon> Accept</ion-button>
+            <ion-button (click)="decline(order)"  *ngIf="order.status == 'Pending';" class="decline" shape="round"><ion-icon name="close-circle-outline"></ion-icon> Decline</ion-button>
+            <ion-button (click)="complete(order)" *ngIf="order.status == 'Accepted';" class="complete"  shape="round"><ion-icon name="checkmark-circle-outline"></ion-icon> Complete</ion-button>
+          </div>
+        </ion-card>
+       
+      </ng-container>
     </div>
 </ion-content>
 
