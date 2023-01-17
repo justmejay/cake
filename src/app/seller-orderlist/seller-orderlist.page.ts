@@ -49,6 +49,7 @@ export class SellerOrderlistPage implements OnInit {
 
     const loading = await this.loadingctrl.create({
       message: 'Accepting Order...',
+
       duration: 1000,
       spinner: 'dots',
   
